@@ -1,5 +1,4 @@
-# Vilniaus universiteto Programų sistemų kursinio darbo LaTeX šablonas
-
+# Vilniaus universiteto Informatikos LaTeX matematines logikos referatas
 ## Pasiruošimas
 
 Šablonas naudoja:  
