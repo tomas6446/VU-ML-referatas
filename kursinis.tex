@@ -50,33 +50,33 @@ Siekiant šio tikslo, darbe bus atliekami keli etapai, kurie apims žinių graf�
 Pagal Semantic Web Company apibrėžimą žinių grafai gali būti apibrėžiami kaip visų tipų objektų tinklas, kuris yra esminis tam tikrai sričiai ar organizacijai. Jie neapsiriboja tik abstrakčiomis sąvokomis bei ryšiais, bet taip pat apima ir konkrečius elementus, tokius kaip dokumentai ar duomenų rinkiniai \cite{SemanticWebCompany}. Žinių grafai yra plačiai naudojami įvairiose pramonės šakose dėl jų sugebėjimo efektyviai analizuoti ir atskleisti tarpusavio ryšius tarp duomenų. Paieškos sistemose, pavyzdžiui, „Google“, žinių grafai padeda tobulinti paieškos rezultatus, pateikiant aktualią ir tikslesnę informaciją naudotojams. 
 
 \subsection{Žinių grafų struktūra}
-Pagal Stanfordo universitetą žinių grafas yra kryptinis grafas, kuriame taškų vardai turi aiškiai apibrėžtas reikšmes. Kryptinis grafas susideda iš taškų (nodes), briaunų (edges) ir taškų vardų. Taškai gali būti bet kas, pavyzdžiui, žmonės, įmonės, kompiuteriai ir t.t. Briauna (edge) jungia porą taškų (nodes) ir atspindi tarp jų dominančius ryšius, pavyzdžiui, draugystės ryšį tarp dviejų žmonių, kliento ryšį tarp įmonės ir asmens ar tinklo ryšį tarp dviejų kompiuterių. Taškų vardai užfiksuoja ryšio reikšmę, pavyzdžiui, draugystės ryšį tarp dviejų žmonių.\cite{stanford_what_2021}
+Pagal Stanfordo universitetą žinių grafas yra kryptinis grafas, kuriame taškų vardai turi aiškiai apibrėžtas reikšmes. Kryptinis grafas susideda iš taškų (nodes), briaunų (edges) ir taškų vardų. Taškai gali būti bet kas, pavyzdžiui, žmonės, įmonės, kompiuteriai ir t.t. Briauna (edge) jungia porą taškų (nodes) ir atspindi tarp jų dominančius ryšius, pavyzdžiui, draugystės ryšį tarp dviejų žmonių, kliento ryšį tarp įmonės ir asmens ar tinklo ryšį tarp dviejų kompiuterių. Taškų vardai užfiksuoja ryšio reikšmę, pavyzdžiui, draugystės ryšį tarp dviejų žmonių \cite{stanford_what_2021}.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{img/triple.jpg}
   \caption{Grafo pavyzdis \cite{stanford_image}}
-  \label{fig:sample_image}
+  \label{fig:triple}
 \end{figure}
 \pagebreak
 
  Pavyzdžiui, norint sukurti žinių grafą, panašų į Facebook draugų ratą, reikėtų:
 \begin{enumerate}
-\item Nurodyti žmones kaip taškus (galite nurodyti savo draugų vardus arba naudoti jų profilio nuotraukas kaip tašką):
+\item Nurodyti žmones kaip taškus (galite nurodyti savo draugų vardus arba naudoti jų profilio nuotraukas kaip tašką) (žr. \ref{fig:nodes} pav.)
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\textwidth]{img/nodes.png}
   \caption{Grafas, kur žmones reprezentuoja taškai}
-  \label{fig:sample_image}
+  \label{fig:nodes}
 \end{figure}
 
-\item Sukurti briaunas tarp draugų. Briaunos reprezentuos draugystes tarp žmonių. 
+\item Sukurti briaunas tarp draugų. Briaunos reprezentuos draugystes tarp žmonių. (žr. \ref{fig:vertex} pav.)
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{img/vertex.png}
   \caption{Grafas, briaunos reprezentuos draugystes tarp žmonių}
-  \label{fig:sample_image}
+  \label{fig:vertex}
 \end{figure}
 \end{enumerate}
 
@@ -85,7 +85,7 @@ Matome, kaip "Alice" yra susietas su "Bob", "Charlie" ir "Dave", "Bob" yra susie
 \pagebreak
 
 \section{RDF modelio apibrėžimas}
-Pagal Vikipediją Resource Description Framework (RDF) yra W3C sukurtas semantinio interneto standartas, skirtas struktūrizuotų metaduomenų aprašymui. RDF turi savo kalbą, RDF Schema (RDFS), ir semantikos aprašymą OWL \cite{wiki:rdf}. RDF grafas yra sudarytas iš trijų teiginių sakinio, pavadinto "triple", kuriame yra subjektas, predikatas ir objektas ir kiekvieną "triple" galima identifikuoti unikaliu URI. Pavyzdžiui, norint aprašyti, kad Vilnius yra Lietuvos sostinė, RDF triplas atrodytų taip:
+Resource Description Framework (RDF) yra W3C sukurtas semantinio interneto standartas, skirtas struktūrizuotų metaduomenų aprašymui. RDF turi savo kalbą, RDF Schema (RDFS), ir semantikos aprašymą OWL \cite{wiki:rdf}. RDF grafas yra sudarytas iš trijų teiginių sakinio, pavadinto "triple", kuriame yra subjektas, predikatas ir objektas ir kiekvieną "triple" galima identifikuoti unikaliu URI. Pavyzdžiui, norint aprašyti, kad Vilnius yra Lietuvos sostinė, RDF triplas atrodytų taip:
 \begin{enumerate}
     \item Subjektas: Vilnius
     \item Predikatas: yra sostinė
@@ -130,17 +130,17 @@ ex:Vilnius ex:gyventojuSkaicius "591632" .
 
 \end{lstlisting}
 
-Kai identifikavom jų komponentus: subjektą, predikatą, ir objektą. Vaizduojame grafą, kur subjektas yra vieną viršūnė, objektas yra kitą viršūnė, o predikatas yra briauna, jungianti šias viršūnės:
+Kai identifikavom jų komponentus: subjektą, predikatą, ir objektą. Vaizduojame grafą, kur subjektas yra vieną viršūnė, objektas yra kitą viršūnė, o predikatas yra briauna, jungianti šias viršūnės (žr. \ref{fig:rdf_example} pav.)
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=1\textwidth]{img/rdf_example.png}
   \caption{Žinių grafas rdf modeliui}
-  \label{fig:sample_image}
+  \label{fig:rdf_example}
 \end{figure}
 \pagebreak
 
 \section{SPARQL užklausų kalbos apžvalga}
-Pagal Vikipedia RDF užklausų kalba, tai yra semantinė užklausų kalba duomenų bazių sistemoms, skirta gauti ir manipuliuoti duomenimis, saugomais RDF formatu \cite{wiki:sparql}.
+RDF užklausų kalba, tai yra semantinė užklausų kalba duomenų bazių sistemoms, skirta gauti ir manipuliuoti duomenimis, saugomais RDF formatu \cite{wiki:sparql}.
 
 Ši kalba suteikia daugybę galimybių ieškoti, filtruoti ir agreguoti duomenis, taip pat jungtis su kitais RDF duomenų šaltiniais. SPARQL matomi jūsų duomenys kaip nukreiptas, pažymėtas grafas, kuris viduje yra išreikštas kaip trijų elementų rinkiniai, sudaryti iš subjekto, predikato ir objekto.
 
@@ -201,13 +201,13 @@ person & name & age & address \\
 SPARQL turi ir daugybę kitų operatorių, leidžiančių atlikti sudėtingas užklausas ir filtruoti duomenis, tokiu kaip: OPTIONAL, UNION, ORDER BY, LIMIT, OFFSET, GROUP BY ir t.t
 
 \section{Žinių grafo pavyzdžio aprašymas}
-Žinių grafai ir SPARQL užklausų kalba yra galingas būdas organizuoti ir gauti informaciją iš plačios srities žinių bazių. Šiame pavyzdyje mes turime žinių grafą, kuris apima informaciją apie filmus ir jų režisierius, aktorius, apdovanojimus ir kitas susijusias sąvokas. Mes taip pat turime tris pavyzdinius klausimus, kuriems mes ieškome atsakymo sąvokų grafe.
+Žinių grafai ir SPARQL užklausų kalba yra galingas būdas organizuoti ir gauti informaciją iš plačios srities žinių bazių. Šiame pavyzdyje mes turime žinių grafą, kuris apima informaciją apie filmus ir jų režisierius, aktorius, apdovanojimus ir kitas susijusias sąvokas. Mes taip pat turime tris pavyzdinius klausimus, kuriems mes ieškome atsakymo sąvokų grafe. (žr. \ref{fig:grafas} pav.)
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=1\textwidth]{img/grafas.jpeg}
   \caption{Žinių grafas}
-  \label{fig:sample_image}
+  \label{fig:grafas}
 \end{figure}
 \pagebreak
 
@@ -218,7 +218,7 @@ Klausimai:
     \item Ar Christopherio Nolano filmas "Interstellar" gavo Oscar?
 \end{enumerate}
 
-Norint rasti atsakymus į šiuos klausimus, naudojame SPARQL užklausų kalbą. SPARQL užklausos yra parengtos pagal RDF modelį. Taigi gauname tokį RDF modelio kodą:
+Norint rasti atsakymus į šiuos klausimus, naudojame SPARQL užklausų kalbą. SPARQL užklausos yra parengtos pagal RDF modelį (žr. \ref{img:last_graph_rdf} pav.). Taigi gauname tokį RDF modelio kodą:
 \begin{lstlisting}[captionpos=b, caption=Pavyzdžio RDF modelis, label=lst:sparql,
    basicstyle=\ttfamily,frame=single]
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -260,11 +260,11 @@ ex:Oscar ex:hasCategory ex:BestPicture .
   \centering
   \includegraphics[width=1\textwidth]{img/last_graph_rdf.png}
   \caption{Žinių grafas naudojant python networkX ir Matplotlib biblioteka}
-  \label{fig:sample_image}
+  \label{fig:last_graph_rdf}
 \end{figure}
 
 \subsection{SPARQL užklausos atsakantys į klausymą ir vykdymo scenarijų analizė}
-Ar gavo Christopherio Nolano filmas "Interstellar" gavo Oscar už nominacija best picture?
+Ar Christopherio Nolano filmas "Interstellar" gavo Oscar už nominacija best picture?
 Galime naudoti tokį užklausą:
 \begin{lstlisting}[captionpos=b, caption=Užklausa 1, label=lst:sparql,
    basicstyle=\ttfamily,frame=single]
