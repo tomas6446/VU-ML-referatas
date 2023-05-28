@@ -16,7 +16,7 @@
 \usepackage{biblatex}
 \usepackage{microtype}
 
-\renewcommand\lstlistingname{Kodas}
+\renewcommand\lstlistingname{kodas}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
@@ -41,7 +41,7 @@
 \tableofcontents
 
 \sectionnonum{Įvadas}
-Ne paslaptis, kad kai kurių projektų sėkmė praeityje buvo pagrįsta greitai ir stabiliai veikiančiomis paslaugomis. Pavyzdžiui, „Facebook“ draugų ratas buvo įgyvendintas naudojant grafus ir algoritmus, leidžiančius greitai rasti ir rodyti vartotojų tarpusavio ryšius. Informacijos paieškos efektyvumas yra neatsiejama kasdienio gyvenimo dalis. Populiariausia paieškos sistema „Google“ paieškos sistema irgi naudoja žinių grafais, tam kad efektyviai ir greitai pateikti mums aktualia informacija. Žinių grafikai yra labai naudinga technologija, tačiau norint iš jų gauti reikiamą informaciją, reikia turėti efektyvias užklausų sistemas. SPARQL yra viena iš tokių užklausos kalbų. Mano darbo tikslas yra išanalizuoti žinių grafų užklausų formavimą ir vykdymą naudojant tokia užklausų kalbą kaip SPARQL.
+Ne paslaptis, kad kai kurių projektų sėkmė praeityje buvo pagrįsta greitai ir stabiliai veikiančiomis paslaugomis. Pavyzdžiui, „Facebook“ draugų ratas buvo įgyvendintas naudojant grafus ir algoritmus, leidžiančius greitai rasti ir rodyti vartotojų tarpusavio ryšius. Informacijos paieškos efektyvumas yra neatsiejama kasdienio gyvenimo dalis. Populiariausia paieškos sistema „Google“ irgi naudojasi žinių grafais, tam kad efektyviai ir greitai pateikti mums aktualia informacija. Žinių grafikai yra labai naudinga technologija, tačiau norint iš jų gauti reikiamą informaciją, reikia turėti efektyvias užklausų sistemas. SPARQL yra viena iš tokių užklausos kalbų. Mano darbo tikslas yra išanalizuoti žinių grafų užklausų formavimą ir vykdymą naudojant tokia užklausų kalbą kaip SPARQL.
 
 Siekiant šio tikslo, darbe bus atliekami keli etapai, kurie apims žinių grafų apibrėžimą ir pritaikymo analizę, SPARQL užklausų kalbos apžvalgą, SPARQL užklausų formavimo žinių grafams ir įvairių tipų užklausų pavyzdžių aptarimą, taip pat pavyzdinio žinių grafo analizę, įskaitant pavyzdinių užklausų formavimą ir analizę.
 
@@ -90,7 +90,6 @@ Resource Description Framework (RDF) yra W3C sukurtas semantinio interneto stand
     \item Subjektas: Vilnius
     \item Predikatas: yra sostinė
     \item Objektas: Lietuva
-    
 \end{enumerate}
 
 \subsection{RDF modelis žinių grafų kūrimui}
@@ -140,7 +139,7 @@ Kai identifikavom jų komponentus: subjektą, predikatą, ir objektą. Vaizduoja
 \pagebreak
 
 \section{SPARQL užklausų kalbos apžvalga}
-RDF užklausų kalba, tai yra semantinė užklausų kalba duomenų bazių sistemoms, skirta gauti ir manipuliuoti duomenimis, saugomais RDF formatu \cite{wiki:sparql}.
+SPARQL užklausų kalba, tai yra semantinė užklausų kalba duomenų bazių sistemoms, skirta gauti ir manipuliuoti duomenimis, saugomais RDF formatu \cite{wiki:sparql}.
 
 Ši kalba suteikia daugybę galimybių ieškoti, filtruoti ir agreguoti duomenis, taip pat jungtis su kitais RDF duomenų šaltiniais. SPARQL matomi jūsų duomenys kaip nukreiptas, pažymėtas grafas, kuris viduje yra išreikštas kaip trijų elementų rinkiniai, sudaryti iš subjekto, predikato ir objekto.
 
@@ -149,7 +148,6 @@ SPARQL užklausų sintaksė yra panaši į SQL užklausų sintaksę, tačiau yra
 
 Pažvelkime į paprastą pavyzdį. Tarkime turime paprastą grafą kuris reprezentuoja žmonės ir jų adresai.
 RDF elementai atrodytų taip:
-
 \begin{lstlisting}[captionpos=b, caption=Žmonių RDF, label=lst:sparql,
    basicstyle=\ttfamily,frame=single]
 <http://example.org/person1> ex:hasName "John" .
@@ -218,7 +216,7 @@ Klausimai:
     \item Ar Christopherio Nolano filmas "Interstellar" gavo Oscar?
 \end{enumerate}
 
-Norint rasti atsakymus į šiuos klausimus, naudojame SPARQL užklausų kalbą. SPARQL užklausos yra parengtos pagal RDF modelį (žr. \ref{img:last_graph_rdf} pav.). Taigi gauname tokį RDF modelio kodą:
+Norint rasti atsakymus į šiuos klausimus, naudojame SPARQL užklausų kalbą. SPARQL užklausos yra parengtos pagal RDF modelį (žr. \ref{fig:last_graph_rdf} pav.). Taigi gauname tokį RDF modelio kodą:
 \begin{lstlisting}[captionpos=b, caption=Pavyzdžio RDF modelis, label=lst:sparql,
    basicstyle=\ttfamily,frame=single]
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -277,7 +275,6 @@ SELECT ?result WHERE {
   ex:Oscar ex:hasCategory ex:BestPicture .
   ex:Oscar ex:hasCategory ?result .
 }
-
 \end{lstlisting}
 
 Ši užklausa ieško kategorijos BestPicture susiejimo su Oscar, kuris susiejamas su Interstellar. Jei toks susiejimas egzistuoja, užklausa grąžins ?result kintamąjį, kuris bus kategorijos pavadinimas (BestPicture). Jei tokio susiejimo nėra, užklausa grąžins tuščią rezultatų rinkinį.
