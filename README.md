@@ -50,3 +50,6 @@ Instaliuoti [MacTex](https://tug.org/mactex).
 - dokumento žodžių skaičius (apytikslis): `make wordcount`  
 - paprastų klaidų patikrinimas (pastaba: praneša apie daugybę dalykų, iš kurių nebūtinai visi aktualūs): `make check`  
 - nereikalingų failų išvalymas: `make clean`
+
+## Prezentacija
+https://github.com/tomas6446/Prezentacija
